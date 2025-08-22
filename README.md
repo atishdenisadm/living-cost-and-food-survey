@@ -31,7 +31,7 @@ Is There a Relationship Between Occupational Class, Tenure Type, Number of Adult
    2. Strong overall fit (F = 440.4, p < 0.001)
   
 ## Transformation
-A logarithmic transformation was applied to the Expenditure variable to address skewness and better meet model assumptions. While the transformed distribution remained similar to the original, statistical tests showed a modest improvement in normality and variance homogeneity. Therefore, the log-transformed version was used for further analysis and compared against the non-transformed model.
+A logarithmic transformation was applied to the Expenditure variable to address skewness and better meet model assumptions. While the transformed distribution remained similar to the original, statistical tests showed a modest improvement in normality and variance of homogeneity. Therefore, the log-transformed version was used for further analysis and compared against the non-transformed model.
   
 ## Analysis Techniques Used
 1. **ANOVA (Analysis of Variances):**  

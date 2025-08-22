@@ -63,6 +63,13 @@ ggplot(df, aes(x = log(household_expenditure))) +
   theme_minimal()
 ```
 
+## Graphs and Visualization
+Raw Data Distribution of Household Expenditure by Occupational Classes
+<img width="1598" height="877" alt="household_expenditure_by_classes" src="https://github.com/user-attachments/assets/f9e07533-ecf6-4569-b301-6da2e1bd6518" />
+
+Log Transformed Distribution of Household Expenditure
+<img width="1184" height="861" alt="Log_transformed_distribution_expenditure" src="https://github.com/user-attachments/assets/025e8cf8-13ce-43a9-bfd9-bb295a06221a" />
+
 ## Conclusion
 Overall, the analysis highlights a strong and consistent relationship between the four predictors and household spending, with household size showing the greatest impact, followed by tenure type and occupational class. Applying a log-transformation improved interpretability, enabling clear percentage-based comparisons that make the findings more intuitive and actionable.
 

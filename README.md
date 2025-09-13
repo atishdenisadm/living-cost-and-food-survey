@@ -32,7 +32,19 @@ Is There a Relationship Between Occupational Class, Tenure Type, Number of Adult
   
 ## Transformation
 A logarithmic transformation was applied to the Expenditure variable to address skewness and better meet model assumptions. While the transformed distribution remained similar to the original, statistical tests showed a modest improvement in normality and variance of homogeneity. Therefore, the log-transformed version was used for further analysis and compared against the non-transformed model.
-  
+
+<img width="1080" height="1350" alt="QQ_plot_comparison" src="https://github.com/user-attachments/assets/b0c0d741-eb70-4ffb-8695-b89f8e208b2b" />
+
+**First Q-Q Plot (Raw Data)**
+1. The points deviate strongly from the red line, especially in the tails (both lower and upper ends).
+2. This means the raw household expenditure data is not normally distributed.
+3. It likely has skewness and heavy tails (extreme values/outliers).
+
+**Second Q-Q Plot (After Log Transformation)**
+1. The points now fall much more closely along the red line, with only minor deviations at the extreme ends.
+2. This indicates that the log transformation improved normality of the data.
+3. The distribution after transformation is much closer to normal than the raw data.
+
 ## Analysis Techniques Used
 1. **ANOVA (Analysis of Variances):**  
    Used to test whether the mean household expenditure differs significantly across categories of a variable. For example, it helps determine if spending levels vary by occupational class.
@@ -52,6 +64,12 @@ summary(df$household_expenditure)
 model <- lm(log(household_expenditure) ~ occupational_classes + tenure_type + childrens + adults, data = df)
 summary(model)
 
+# Checking Skewness of the Expenditure
+skewness(df$household_expenditure)
+
+# durbinwatsontest for Independence of observations
+durbinWatsonTest(model)
+
 # Distribution of Household Expenditure (Density plot with curve)
 ggplot(df, aes(x = log(household_expenditure))) +
   geom_histogram(aes(y = ..density..), bins = 30,
@@ -61,6 +79,10 @@ ggplot(df, aes(x = log(household_expenditure))) +
        x = "Household Expenditure",
        y = "Density") +
   theme_minimal()
+
+# Q-Q Plot to check Normality of Residuals
+qqnorm(residuals(model))
+qqline(residuals(model), col = "red")
 ```
 
 ## Graphs and Visualization
